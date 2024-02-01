@@ -17,6 +17,7 @@ const SharedLayout = () => {
       </Suspense>
       </main>
     { !isHome && <Footer/>}
+    
     </>
   );
 };

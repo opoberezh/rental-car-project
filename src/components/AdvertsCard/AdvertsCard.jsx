@@ -13,7 +13,7 @@ import {
   StyledButton,
 } from './AdvertsCard.styled';
 import {  useSelector } from 'react-redux';
-// import FavoriteCards from '../FavoriteCards/FavoriteCards';
+import FavoriteCard from '../FavoriteCard/FavoriteCard';
 import { selectFavorites } from '../redux/selectors';
 
 
@@ -32,7 +32,6 @@ const AdvertsCard = ({item}) => {
     mileage,
   } = item || {};
 
-  // const dispatch = useDispatch();
   const favorites = useSelector(selectFavorites);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -57,7 +56,7 @@ const AdvertsCard = ({item}) => {
     <Wrapper>
       <WrapperImage  >
         <Image src={img} loading="lazy" alt={make}/>
-        {/* <FavoriteCards card={item} /> */}
+        <FavoriteCard card={item} />
       </WrapperImage>
       <WrapperTitle>
         <Title>
