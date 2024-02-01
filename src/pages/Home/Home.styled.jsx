@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import bmwHero from '../../assets/bmwHero.jpg'
 
 export const HomeWrapper = styled.div`
-  width: 100%;
-  height: 100vh;
+
   background-image: url(${bmwHero});
   background-repeat: no-repeat;
   background-position: left top;
@@ -14,14 +13,16 @@ export const HomeWrapper = styled.div`
 export const Container = styled.div`
   display: flex;
   
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
   width: 375px;
+  height: 995px;
   padding: 100px 20px 0 20px;
   @media (min-width: 1440px){
     width: 425px;
+   
   }
 `;
 

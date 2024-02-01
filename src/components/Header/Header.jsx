@@ -1,29 +1,30 @@
-import {
-  HeaderContainer,
-  Navigation,
-  StyledLink,
-  IconWrapper,
-} from './Header.styled';
-import sprite from 'assets/sprite.svg';
+import React from 'react';
+
+
+import logoMini from '../../assets/logoMini.svg'
+import { HeaderContainer, StyledHeader, LinkStyled, Container, Img, ImgWrapper } from './Header.styled';
 
 export const Header = () => {
-
   return (
     <HeaderContainer>
-      <Navigation>
-        <StyledLink to="/home">
-          <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
-          </IconWrapper>
-          First
-        </StyledLink>
-        <StyledLink to="/second">
-          <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
-          </IconWrapper>
-          Second
-        </StyledLink>
-      </Navigation>
+      <StyledHeader>
+      <Container>
+        <ImgWrapper>
+        <Img src={logoMini} alt="Logo"/>
+      </ImgWrapper>
+       
+        <LinkStyled className="animated"  to="/">
+          Home
+        </LinkStyled>
+        <LinkStyled className="animated" to="/catalog">
+          Catalog
+        </LinkStyled>
+        <LinkStyled  className="animated" to="/favorite">
+          Favorites
+        </LinkStyled>
+      </Container>
+    </StyledHeader>
     </HeaderContainer>
+
   );
 };
