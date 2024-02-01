@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   position: relative;
-  padding: 34px;
+  padding: 34px 40px;
+  @media screen and (max-width: 425px) {
+    padding: 34px;
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -16,8 +20,8 @@ export const CloseButton = styled.button`
   background-color: transparent;
   border: none;
   border-radius: 100px;
-  top: 16px;
-  right: 8px;
+  top: 14px;
+  right: 14px;
   cursor: pointer;
   &:hover {
     background-color: #f7f7f7;
@@ -33,11 +37,14 @@ export const CarImage = styled.img`
   display: block;
   object-fit: cover;
   border-radius: 14px;
+  @media screen and (max-width: 425px) {
+    width: 300px; 
+  }
 `;
 
-export const WrapInfor = styled.div`
+export const WrapInfo = styled.div`
   margin-top: 14px;
-  margin-bottom: 24px;
+
 `;
 
 export const TitleCard = styled.div`
@@ -84,7 +91,12 @@ export const Item = styled.li`
 export const Description = styled.p`
   line-height: 1.43;
   margin-top: 14px;
+  font-size: 14px;
   width: 461px;
+  @media screen and (max-width: 425px) {
+    width: 300px; 
+    font-size: 12px;
+  }
 `;
 export const OptionsTitel = styled.h3`
   font-weight: 400;
@@ -99,12 +111,12 @@ export const ConditionList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-
+  width: 400px;
   font-size: 12px;
   letter-spacing: -0.24px;
 
-  @media screen and (min-width: 768px) {
-    width: 461px;
+  @media screen and (max-width: 425px) {
+    width: 270px;
   }
 `;
 
@@ -118,4 +130,32 @@ export const ConditionItem = styled.li`
 export const ConditionSpan = styled.span`
   color: #3470ff;
   font-weight: 600;
+`;
+
+export const StyledButton = styled(Link)`
+display: inline-block;
+border-radius: 12px;
+padding: 12px 50px;
+text-decoration: none;
+width: 168px;
+height: 44px;
+ border: none;
+  background: #3470ff;
+  color: #fff;
+  margin-top: 24px;
+  font-family: 'Manrope';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.42;
+
+  
+
+  
+  
+  
+  &:hover,
+  &:focus {
+    background-color: #0b44cd;
+  }
 `;

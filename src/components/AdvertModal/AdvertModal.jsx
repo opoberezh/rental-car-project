@@ -13,9 +13,10 @@ import {
   List,
   OptionsTitel,
   Span,
+  StyledButton,
   Title,
   TitleCard,
-  WrapInfor,
+  WrapInfo,
   Wrapper
 } from './AdvertModal.styled';
 
@@ -25,10 +26,15 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 541,
+  height: 752,
+  borderRadius: '24px',
   bgcolor: 'background.paper',
-  border: '2px solid #000',
   boxShadow: 24,
-  p: 4,
+ 
+  '@media screen and (max-width: 425px)': {
+    width: 375,
+    height: 'auto',
+  },
 };
 
 export default function AdvertModal({ onClose, data, open }) {
@@ -61,7 +67,7 @@ export default function AdvertModal({ onClose, data, open }) {
               <FiX style={{ width: '24px', height: '24px' }} />
             </CloseButton>
             <CarImage src={data.img} data={data} />
-            <WrapInfor>
+            <WrapInfo>
               <TitleCard>
                 <Title>
                   {data.make} <Span>{data.model}, </Span>
@@ -111,8 +117,8 @@ export default function AdvertModal({ onClose, data, open }) {
                   Price: <ConditionSpan>{data.rentalPrice}</ConditionSpan>
                 </ConditionItem>
               </ConditionList>
-            </WrapInfor>
-            <button
+            </WrapInfo>
+            <StyledButton
               type="button"
               width="168px"
               onClick={() => {
@@ -120,7 +126,7 @@ export default function AdvertModal({ onClose, data, open }) {
               }}
             >
               Rental car
-            </button>
+            </StyledButton>
           </Wrapper>
         </Box>
       </Modal>
