@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-          <BrowserRouter basename="/react_vite">
+          <BrowserRouter basename="/rental-car-project">
       <App />
     </BrowserRouter>
       </PersistGate>
