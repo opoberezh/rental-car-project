@@ -1,4 +1,4 @@
-import{n as e,L as i,j as t}from"./index-a7ccdd91.js";const n="/react_vite/assets/bmwHero-30951bd9.jpg",o=e.div`
+import{n as e,L as i,j as t}from"./index-3a82a015.js";const n="/react_vite/assets/bmwHero-30951bd9.jpg",o=e.div`
 
   background-image: url(${n});
   background-repeat: no-repeat;
