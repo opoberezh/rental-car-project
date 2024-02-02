@@ -14,3 +14,10 @@
 ### Adverts filtrating will reduce a search time
 
 ![Filter](./src/assets/filter-min.png)
+
+#### This App is an adaptive for a mobile, tab, laptop and a desktop
+
+![mobile](./src/assets/mobile-min.png)
+![tab](./src/assets/tab-min.png)
+![laptop](./src/assets/laptop-min.png)
+![desktop](./src/assets/desctop-min.png)

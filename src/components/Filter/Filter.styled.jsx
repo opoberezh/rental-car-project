@@ -12,6 +12,11 @@ export const Container = styled.div`
     align-items: center;
     margin-top: 20px;
   }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+   gap: 14px;
+  }
 `;
 
 export const SelectContainer = styled.div`
@@ -29,16 +34,24 @@ export const InputContainer = styled.div`
   position: relative;
   height: 48px;
   align-items: flex-end;
+  
+
+  
 `;
 
 export const Form = styled.form`
   display: flex;
  gap: 8px;
+ text-align: start;
+ @media screen and (max-width: 425px) {
+  flex-direction: column;
+  align-items: center;
  
+}
   @media screen and (max-width: 768px) {
-    flex-direction: column;
+    // flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+   
   }
 `;
 
@@ -67,6 +80,9 @@ export const InputLeft = styled.input`
   &:focus {
     outline-color: #3470ff;
   }
+  // @media screen and (max-width: 768px) {
+  //   width: 120px;
+  // }
 
 `;
 
@@ -86,7 +102,9 @@ export const InputRight = styled.input`
   &:focus {
     outline-color: #3470ff;
   }
- 
+  // @media screen and (max-width: 768px) {
+  //   width: 120px;
+  // }
 `;
 
 export const UnitLeft = styled.span`
@@ -107,6 +125,9 @@ export const UnitRight = styled.span`
   font-family: 'Manrope';
   color: rgba(18, 20, 23, 1);
   font-size: 18px;
+  // @media screen and (max-width: 768px) {
+  //   left: 140px;
+  // }
 `;
 
 export const SearchButton = styled.button`
