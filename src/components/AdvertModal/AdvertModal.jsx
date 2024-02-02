@@ -66,7 +66,12 @@ export default function AdvertModal({ onClose, data, open }) {
             <CloseButton onClick={handleClose}>
               <FiX style={{ width: '24px', height: '24px' }} />
             </CloseButton>
-            <CarImage src={data.img} data={data} />
+
+            {data.img ? (
+              <CarImage src={data.img} data={data} />
+            ) : (
+              <CarImage src='../../assets/default_car_image.png' alt='Default Car Image'  />
+            )}
             <WrapInfo>
               <TitleCard>
                 <Title>

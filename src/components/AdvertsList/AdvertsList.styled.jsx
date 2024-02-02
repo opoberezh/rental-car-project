@@ -5,6 +5,7 @@ export const MainContainer = styled.div`
  flex-direction: column;
  justify-content: center;
  width: 100%;
+ padding: 0 0 24px 0;
 `;
 export const ListWrapper = styled.ul`
 display: flex;

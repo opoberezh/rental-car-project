@@ -40,7 +40,11 @@ const AdvertsList = () => {
       <ListWrapper>
         {adverts.map((advert) => (
           <li key={advert.id}>
-            <AdvertsCard item={advert} />
+            {advert.img ? (
+              <AdvertsCard item={advert} />
+            ) : (
+            <img src='../../assets/default.png' alt='Default image' />)}
+            
           </li>
         ))}
       </ListWrapper>
