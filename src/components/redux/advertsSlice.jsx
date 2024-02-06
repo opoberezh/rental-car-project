@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAdverts, fetchFilteredAdverts } from './operations';
+import { fetchAdverts } from './operations';
 
 const initialState = {
   adverts: {
     items: [],
     isLoading: false,
     error: null,
+ 
   },
 };
 
@@ -21,30 +22,23 @@ const handleRejected = (state, action) => {
 
 const handleFetchAdvertsFulfilled = (state, action) => {
   state.isLoading = false;
-  state.adverts.items = action.payload;
+  const newItems = action.payload.filter(newItem => !state.adverts.items.some(item => item.id === newItem.id));
+  state.adverts.items = [...state.adverts.items, ...newItems];
+
   state.error = null;
 };
 
-const handleFetchFilteredAdvertsFulfilled = (state, action) => {
-  state.isLoading = false;
-  state.adverts = { items: action.payload, isLoading: false, error: null, isFilter: true };
-
-  state.error = null;
-  state.isFilter = true;
-};
 
 export const advertsSlice = createSlice({
   name: 'adverts',
   initialState,
-
+  
   extraReducers: builder =>
     builder
       .addCase(fetchAdverts.pending, handlePending)
       .addCase(fetchAdverts.fulfilled, handleFetchAdvertsFulfilled)
       .addCase(fetchAdverts.rejected, handleRejected)
-      .addCase(fetchFilteredAdverts.pending, handlePending)
-      .addCase(fetchFilteredAdverts.fulfilled, handleFetchFilteredAdvertsFulfilled)
-      .addCase(fetchFilteredAdverts.rejected, handleRejected),
+     
 });
-
+export const { setCurrentPage } = advertsSlice.actions;
 export const advertsReducer = advertsSlice.reducer;

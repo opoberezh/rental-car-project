@@ -20,7 +20,7 @@ import {
 
 import { useState } from 'react';
 import { setMake, setPrice } from '../redux/filterSlice';
-import { fetchFilteredAdverts } from 'components/redux/operations';
+
 
 
 const Filter = ({ onFilterChange }) => {
@@ -44,7 +44,7 @@ const Filter = ({ onFilterChange }) => {
 
   const applyFilter = async e => {
     e.preventDefault();
-    dispatch(fetchFilteredAdverts());
+    dispatch();
   };
 
   const handlePriceStepChange = selectedOption => {

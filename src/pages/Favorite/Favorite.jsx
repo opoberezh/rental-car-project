@@ -1,6 +1,6 @@
 import {  useSelector } from 'react-redux';
 import { selectTotalFavorites } from '../../components/redux/selectors';
-import { FavSection, FavText } from './Favorite.styled';
+import { FavSection, FavText, MessageWrapper } from './Favorite.styled';
 import { FavoritesList } from '../../components/FavoriteList/FavoriteList';
 
 

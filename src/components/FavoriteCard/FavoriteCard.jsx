@@ -13,11 +13,15 @@ const FavoriteCard = ({ card }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    // Check if the current item is in the favorites list
-    setIsFavorite((prevIsFavorite) =>
-    favorites.some((fav) => fav.id === card.id)
-  );
-}, [favorites, card.id, isFavorite]);
+    // Check if favorites is defined and is not null
+    if (favorites && favorites.length > 0) {
+      // Check if the current item is in the favorites list
+      setIsFavorite(favorites.some((fav) => fav.id === card.id));
+    } else {
+      setIsFavorite(false);
+    }
+  }, [favorites, card.id]);
+
 
   const handleToggleFavorite = () => {
     if (isFavorite) {
@@ -33,8 +37,17 @@ const FavoriteCard = ({ card }) => {
         onClick={handleToggleFavorite}
         style={{ background: 'transparent', border: 'none' }}
       >
-        {isFavorite ? <IoHeartSharp style={{ fill: '#3470FF', width: '18px', height: '18px' }} /> : <IoHeartOutline style={{ stroke: '#ffffff', width: '18px', height: '18px' }}/>}
+        {isFavorite ? (
+          <IoHeartSharp
+            style={{ fill: '#3470FF', width: '18px', height: '18px' }}
+          />
+        ) : (
+          <IoHeartOutline
+            style={{ stroke: '#ffffff', width: '18px', height: '18px' }}
+          />
+        )}
       </button>
+     
     </div>
   );
 };
