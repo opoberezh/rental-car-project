@@ -7,7 +7,7 @@ import { ListWrapper, MainContainer } from './AdvertsList.styled';
 import { ButtonLoadMore } from './AdvertsList.styled';
 import { Loader } from 'components/Loader/Loader';
 
-const AdvertsList = () => {
+const AdvertsList = ({ filters }) => {
   const dispatch = useDispatch();
   const adverts = useSelector(selectAdverts);
   const [page, setPage] = useState(1);
@@ -15,8 +15,8 @@ const AdvertsList = () => {
   const error = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(fetchAdverts( page ));
-  }, [dispatch, page]);
+    dispatch(fetchAdverts( page, filters ));
+  }, [dispatch, page, filters]);
 
   const handleLoadMore = () => {
     setPage(page + 1);
@@ -36,10 +36,27 @@ const AdvertsList = () => {
     return <p>{error}</p>;
   }
 
+  
+  const filteredAdverts = adverts.filter(advert => {
+    // Перевіряємо виробника
+    if (filters.make && filters.make !== advert.make) {
+      return false;
+    }
+    // Перевіряємо ціну
+    if (filters.filteredPrices && !filters.filteredPrices.some(price => parseFloat(price.value.replace('$', '')) === parseFloat(advert.rentalPrice.replace('$', '')))) {
+      return false;
+    }
+    // Перевіряємо пробіг
+    if ((filters.minMileage && advert.mileage < filters.minMileage) || (filters.maxMileage && advert.mileage > filters.maxMileage)) {
+      return false;
+    }
+    return true;
+  });
+
   return (
     <MainContainer>
       <ListWrapper>
-      {adverts.map((advert) => (
+      {filteredAdverts.map((advert) => (
           <li key={advert.id}>
             <AdvertsCard item={advert} />
           </li>

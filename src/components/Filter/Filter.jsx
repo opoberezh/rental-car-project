@@ -42,19 +42,19 @@ const Filter = ({ onFilterChange }) => {
     priceRangeOptions.push({ value: i, label: `${i}` });
   }
 
-  const applyFilter = async e => {
-    e.preventDefault();
-    dispatch();
-  };
+ 
 
   const handlePriceStepChange = selectedOption => {
     if (selectedOption) {
       console.log('Selected Price:', selectedOption.value);
-      dispatch(setPrice(selectedOption.value));
+      dispatch(setPrice(selectedOption));
     } else {
       toast.error('Selected Price is undefined');
     }
   };
+
+
+
   // const handlePriceStepChange = (selectedOption) => {
 
   //   console.log("Selected Option:", selectedOption);
@@ -62,8 +62,8 @@ const Filter = ({ onFilterChange }) => {
   //   dispatch(setPrice( selectedOption.value));
   // };
 
-  console.log('Adverts:', adverts);
-  console.log('Selected Price:', selectedPrice);
+  // console.log('Adverts:', adverts);
+  // console.log('Selected Price:', selectedPrice);
 
   const formatMileage = value => {
     if (value !== undefined && value !== null && value !== '') {
@@ -85,14 +85,25 @@ const Filter = ({ onFilterChange }) => {
   };
 
   const filteredPrices = adverts.filter(
-    advert => selectedPrice === null || advert.rentalPrice <= selectedPrice
+    advert => selectedPrice === null || parseFloat(advert.rentalPrice.replace('$', '')) <= selectedPrice.value
   );
+
   const filteredPricesOptions = filteredPrices.map(advert => ({
     value: advert.rentalPrice,
     label: `${advert.rentalPrice}`,
   }));
 
   const handleFilterClick = () => {
+    if (
+      (!selectedMake || !selectedMake.value) &&
+    (!selectedPrice || !selectedPrice.value) &&
+    (!minValue || minValue.trim() === '') &&
+    (!maxValue || maxValue.trim() === '')
+    ) {
+      // Якщо нічого не вибрано, показати повідомлення
+      toast.error('Please select at least one filter.');
+      return;
+    }
     if (
       parseInt(minValue.replace(/,/g, ''), 10) >
       parseInt(maxValue.replace(/,/g, ''), 10)
@@ -115,7 +126,7 @@ const Filter = ({ onFilterChange }) => {
 
   return (
     <Container>
-      <Form onSubmit={applyFilter}>
+      <Form >
         <SelectContainer>
           <Label htmlFor="nameSelect">Car brand</Label>
           <Select
