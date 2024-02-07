@@ -47,7 +47,7 @@ const Filter = ({ onFilterChange }) => {
 
   const handlePriceStepChange = selectedOption => {
     if (selectedOption) {
-      console.log('Selected Price:', selectedOption.value);
+     
       dispatch(setPrice(selectedOption));
     } else {
       toast.error('Selected Price is undefined');
@@ -56,15 +56,7 @@ const Filter = ({ onFilterChange }) => {
 
 
 
-  // const handlePriceStepChange = (selectedOption) => {
-
-  //   console.log("Selected Option:", selectedOption);
-
-  //   dispatch(setPrice( selectedOption.value));
-  // };
-
-  // console.log('Adverts:', adverts);
-  // console.log('Selected Price:', selectedPrice);
+ 
 
   const formatMileage = value => {
     if (value !== undefined && value !== null && value !== '') {
@@ -119,7 +111,7 @@ const Filter = ({ onFilterChange }) => {
       minMileage: parseInt(minValue.replace(/,/g, ''), 10),
       maxMileage: parseInt(maxValue.replace(/,/g, ''), 10),
     };
-console.log(newFilters);
+
     onFilterChange(newFilters);
   };
 

@@ -7,7 +7,7 @@ const Catalog = () => {
   const [filters, setFilters] = useState ({});
 
   const handleFilterChange = newFilters => {
-    console.log('New filters:', newFilters);
+   
     setFilters(newFilters);
   };
 

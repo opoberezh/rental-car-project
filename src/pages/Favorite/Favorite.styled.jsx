@@ -23,5 +23,5 @@ export const FavText = styled.h2`
   margin: auto;
   text-align: center;
   font-size: 2rem;
-  color: #1a1a1a; /* Adjust the color to your preference */
+  color: #1a1a1a; 
 `;

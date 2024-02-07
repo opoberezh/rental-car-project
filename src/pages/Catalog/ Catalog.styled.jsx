@@ -4,8 +4,10 @@ import styled from '@emotion/styled';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   padding-top: 40px;
+  max-width: 1280px;
+  min-height: calc(100vh - 132px);
 `;
 
 export const Block = styled.div`
