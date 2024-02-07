@@ -37,6 +37,7 @@ const Filter = ({ onFilterChange }) => {
     label: advert.make,
   }));
 
+
   const priceRangeOptions = [];
   for (let i = 30; i <= 500; i += 10) {
     priceRangeOptions.push({ value: i, label: `${i}` });
@@ -74,7 +75,7 @@ const Filter = ({ onFilterChange }) => {
     return null; // Return null for empty values
   };
 
-  console.log('Selected Price:', selectedPrice);
+
 
   const handleMinInputChange = e => {
     setMinValue(e.target.value);
@@ -118,7 +119,7 @@ const Filter = ({ onFilterChange }) => {
       minMileage: parseInt(minValue.replace(/,/g, ''), 10),
       maxMileage: parseInt(maxValue.replace(/,/g, ''), 10),
     };
-
+console.log(newFilters);
     onFilterChange(newFilters);
   };
 

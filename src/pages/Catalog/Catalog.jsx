@@ -4,7 +4,7 @@ import { Container, Block } from './ Catalog.styled';
 import Filter from '../../components/Filter/Filter';
 
 const Catalog = () => {
-  const [filters, setFilters] = useState (null);
+  const [filters, setFilters] = useState ({});
 
   const handleFilterChange = newFilters => {
     console.log('New filters:', newFilters);

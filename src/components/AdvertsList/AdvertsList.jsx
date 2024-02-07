@@ -8,6 +8,7 @@ import { ButtonLoadMore } from './AdvertsList.styled';
 import { Loader } from 'components/Loader/Loader';
 
 const AdvertsList = ({ filters }) => {
+  console.log(filters);
   const dispatch = useDispatch();
   const adverts = useSelector(selectAdverts);
   const [page, setPage] = useState(1);
@@ -38,6 +39,7 @@ const AdvertsList = ({ filters }) => {
 
   
   const filteredAdverts = adverts.filter(advert => {
+    
     // Перевіряємо виробника
     if (filters.make && filters.make !== advert.make) {
       return false;
@@ -50,9 +52,11 @@ const AdvertsList = ({ filters }) => {
     if ((filters.minMileage && advert.mileage < filters.minMileage) || (filters.maxMileage && advert.mileage > filters.maxMileage)) {
       return false;
     }
+   
     return true;
   });
-
+  console.log(filteredAdverts)
+  console.log(adverts)
   return (
     <MainContainer>
       <ListWrapper>
