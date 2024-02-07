@@ -1,4 +1,4 @@
-import{n as a,u as g,a as p,r as d,j as t,k as m,l as f}from"./index-76bba451.js";import{e as F,A as j,f as y,g as w}from"./AdvertsCard-b456da84.js";const A=a.div`
+import{n as a,u as g,a as p,r as d,j as t,k as m,l as f}from"./index-956788d8.js";import{e as F,A as j,f as y,g as w}from"./AdvertsCard-6ac296ca.js";const A=a.div`
   padding-bottom: 100px;
   margin-top: 100px;
   max-width: 1280px;
